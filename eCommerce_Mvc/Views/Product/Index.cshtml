@@ -1,8 +1,174 @@
-﻿
+﻿@model Product
+
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout1.cshtml";
 }
 
-<h2>Index</h2>
+@{
+    Product product = new Product();
 
+    product = Model;
+}
+
+<!-- product section -->
+<section class="product-section">
+    <div class="container">
+        <div class="back-link">
+            @*<a href="../index.aspx"> &lt;&lt; Anasayfaya Dön</a>*@
+            @Html.ActionLink("Anasayfaya Dön", "Index", "Home")
+
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="product-pic-zoom">
+                    <img class="product-big-img" src="~/Assets/img/productDetails/kucukPrens/@product.ImageUrl" alt="">
+                </div>
+                <div class="product-thumbs" tabindex="1" style="overflow: hidden; outline: none;">
+                    <div class="product-thumbs-track">
+                        <div class="pt active" data-imgbigurl="img/@product.ImageUrl"><img src="~/Assets/img/productDetails/kucukPrens/@product.ImageUrl" alt=""></div>
+                        <div class="pt" data-imgbigurl="~/Assets/img/productDetails/kucukPrens/@product.Picture1"><img src="~/Assets/img/productDetails/kucukPrens/@product.Picture1" alt=""></div>
+                        <div class="pt" data-imgbigurl="~/Assets/img/productDetails/kucukPrens/@product.Picture2"><img src="~/Assets/img/productDetails/kucukPrens/@product.Picture2" alt=""></div>
+                        <div class="pt" data-imgbigurl="~/Assets/img/productDetails/kucukPrens/@product.Picture3"><img src="~/Assets/img/productDetails/kucukPrens/@product.Picture3" alt=""></div>
+                        <div class="pt" data-imgbigurl="~/Assets/img/productDetails/kucukPrens/@product.Picture4"><img src="~/Assets/img/productDetails/kucukPrens/@product.Picture4" alt=""></div>
+                        <div class="pt" data-imgbigurl="~/Assets/img/productDetails/kucukPrens/@product.Picture5"><img src="~/Assets/img/productDetails/kucukPrens/@product.Picture5" alt=""></div>
+                        <div class="pt" data-imgbigurl="~/Assets/img/productDetails/kucukPrens/@product.Picture6"><img src="~/Assets/img/productDetails/kucukPrens/@product.Picture6" alt=""></div>
+                        <div class="pt" data-imgbigurl="~/Assets/img/productDetails/kucukPrens/@product.Picture7"><img src="~/Assets/img/productDetails/kucukPrens/@product.Picture7" alt=""></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 product-details">
+                <h2 class="p-title">@product.Name</h2>
+                <h3 class="p-price">@product.UnitPrice TL</h3>
+                <h4 class="p-stock">Stok Durumu: <span>Stokta</span></h4>
+                <div class="p-rating">
+                    <i class="fa fa-star-o"></i>
+                    <i class="fa fa-star-o"></i>
+                    <i class="fa fa-star-o"></i>
+                    <i class="fa fa-star-o"></i>
+                    <i class="fa fa-star-o fa-fade"></i>
+                </div>
+                <div class="p-review">
+                    <a href="">3 Yorum</a>|<a href="">Yorum Ekle</a>
+                </div>
+                <div>
+                    <p style="font-size:20px;">Yazar: @product.Writer.Name @product.Writer.Surname</p>
+                    <p style="font-size:20px;">Çevirmen: Tomris Uyar, Cemal Süreya</p>
+                    <p style="font-size:20px;">Yayınevi : @product.Supplier.CompanyName</p>
+                </div>
+                @*<div class="quantity">
+                        <p>Adet</p>
+                        <div class="pro-qty"><input type="text" value="1"></div>
+                    </div>*@@*<a href="#" class="site-btn">SEPETE EKLE</a>*@
+
+                    @using (Html.BeginForm("AddToCart", "Cart"))
+                    {
+                        @Html.HiddenFor(Model => Model.ProductId)
+                        <button type="submit" class="btn btn-success">
+                            <i class="fa fa-cart-plus" aria-hidden="true"></i>
+                            Sepete Ekle
+                        </button>
+                    }
+
+
+
+                    <div id="accordion" class="accordion-area">
+                        <div class="panel">
+                            <div class="panel-header" id="headingOne">
+                                <button class="panel-link active" data-toggle="collapse" data-target="#collapse1" aria-expanded="true" aria-controls="collapse1">BİLGİ</button>
+                            </div>
+                            <div id="collapse1" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                                <div class="panel-body">
+                                    <p>@product.LongDesciription</p>
+                                    <p>Sayfa Sayısı : @product.Pages</p>
+                                    <p>İlk Baskı Yılı : @product.PublishYear</p>
+                                    <p>Dil : Türkçe</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel">
+                            <div class="panel-header" id="headingTwo">
+                                <button class="panel-link" data-toggle="collapse" data-target="#collapse2" aria-expanded="false" aria-controls="collapse2">ÖDEME SEÇECEKLERİ </button>
+                            </div>
+                            <div id="collapse2" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                                <div class="panel-body">
+                                    <img src="/Assets/img/cards.png" alt="">
+                                    <p>Ek olarak kapıda ödeme seçeneği ile !</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel">
+                            <div class="panel-header" id="headingThree">
+                                <button class="panel-link" data-toggle="collapse" data-target="#collapse3" aria-expanded="false" aria-controls="collapse3">Kargolama & İade</button>
+                            </div>
+                            <div id="collapse3" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+                                <div class="panel-body">
+                                    <h4>24 Saat İçerisinde İade Seçeneği</h4>
+                                    <p>Ortalama teslim süresi <span>1 - 4 gün</span></p>
+                                    <p>Sipariş kargoya verildikten sonra bulunduğunuz şehre ve ilçeye göre 1-4 gün içerisinde dağıtım yapılmaktadır. Aksaklık yaşamanız durumunda kargo takip numaranız ile durumu mail olarak firmamıza iletebilirsiniz. Teslimat sürecini kargo takip kodunuz ile kontrol ederek adreste bulunmanız yeterli olacaktır. Köy dağıtım ya da mobil alanlar için süreç değişiklik gösterebilmektedir.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="social-sharing">
+                        <a href=""><i class="fa fa-facebook"></i></a>
+                        <a href=""><i class="fa fa-twitter"></i></a>
+                        <a href=""><i class="fa fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- article comments -->
+    <div class="article-comments">
+        <div class="section-title">
+            <h2 class="title">Yorumlar</h2>
+        </div>
+
+        <!-- comment -->
+        @{
+            foreach (var review in product.Reviews)
+            {
+                <div class="media">
+                    <div class="media-left">
+                        <img src="~/Assets/img/review/av-1.jpg" alt="">
+                    </div>
+                    <div class="media-body">
+                        <div class="media-heading">
+                            <h5>@review.Name <span class="reply-time" style="color:black;">@review.ReviewDate</span></h5>
+                        </div>
+                        <p>@review.Review</p>
+
+                    </div>
+                </div>
+            }
+        }
+    </div>
+
+    <!-- reply form -->
+    <div class="article-reply-form">
+        <div class="section-title">
+            <h2 class="title">Yorum Yaz</h2>
+        </div>
+
+        @using (Html.BeginForm())
+        {
+            <div class="container">
+                <input class="input" placeholder="Name" type="text" name="Name">
+                <br />
+                <input class="input" placeholder="Email" type="email" name="Email">
+                <br />
+                <input class="input" placeholder="Website" type="url" name="Website">
+                <br />
+                <textarea class="input" placeholder="Message" name="Message"></textarea>
+                <br />
+                <input id="signIn" type="submit" class="btn btn-info" value="Send Message" />
+            </div>
+
+        }
+
+
+    </div>
+    <!-- /reply form -->
+    <!-- product section end -->

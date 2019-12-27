@@ -62,7 +62,8 @@
             {                   
             <div class="product-item">
                 @*<a href="">*@
-                @Html.ActionLink(@item.Name, "Index", "Product", item.ProductId, new { @class = "" })
+                @*@Html.ActionLink(@item.Name, "Index", "Product", item.ProductId, new { @class = "" })*@
+                @Html.ActionLink(item.Name, "Index", "Product", new {id = item.ProductId}, null)
                 <div class="pi-pic">
                     <div class="tag-new">Yeni</div>
                     <img src="~/Assets/img/product/2.jpg" alt="">
