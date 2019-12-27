@@ -6,7 +6,16 @@ using System.Threading.Tasks;
 
 namespace eCommerce_Mvc.Entities.DTO
 {
-    class ProductDTO
+    public class ProductDTO
     {
+        public string Name { get; set; }
+
+        public double UnitPrice { get; set; }
+
+        public string ImageUrl { get; set; }
+
+        public string Information { get; set; }
+
+        public string CategoryName { get; set; }
     }
 }

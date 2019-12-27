@@ -54,6 +54,10 @@
       <Project>{754FEE04-5A63-4796-961D-62EF62D02BDB}</Project>
       <Name>eCommerce_Mvc.Entities</Name>
     </ProjectReference>
+    <ProjectReference Include="..\eCommerce_Mvc.Helpers\eCommerce_Mvc.Helpers.csproj">
+      <Project>{C676E4A7-FEA1-4832-A9F8-EC570593BE01}</Project>
+      <Name>eCommerce_Mvc.Helpers</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
