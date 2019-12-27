@@ -14,6 +14,7 @@ namespace eCommerce_Mvc.Helpers.Extensions
         {
             ProductDTO DTOProduct = new ProductDTO
             {
+                ProductId = product.ProductId,
                 Name = product.Name,
                 ImageUrl = product.ImageUrl,
                 Information = product.LongDesciription.Substring(0, 20),
@@ -28,6 +29,7 @@ namespace eCommerce_Mvc.Helpers.Extensions
         {
             List<ProductDTO> productList = products.Select(i => new ProductDTO
             {
+                ProductId = i.ProductId,
                 Name = i.Name,
                 ImageUrl = i.ImageUrl,
                 Information = i.LongDesciription.Substring(0, 20),

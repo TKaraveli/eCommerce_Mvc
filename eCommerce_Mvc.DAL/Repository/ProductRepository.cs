@@ -22,5 +22,16 @@ namespace eCommerce_Mvc.DAL.Repository
 
             return products;
         }
+
+        public Product GetProduct(int id)
+        {
+            Product product;
+            using (var databaseContext = new ProjectContext())
+            {
+                //product = databaseContext.Products.Find(id);
+                product = databaseContext.Products.FirstOrDefault(i => i.ProductId.Equals(id));
+            }
+            return product;
+        }
     }
 }

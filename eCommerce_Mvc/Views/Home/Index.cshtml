@@ -59,23 +59,23 @@
         </div>
         <div class="product-slider owl-carousel">
             @foreach (var item in Model)
-            {
-                
+            {                   
             <div class="product-item">
-                <a href="~/Views/Product/Index.cshtml">
-                    <div class="pi-pic">
-                        <div class="tag-new">Yeni</div>
-                        <img src="~/Assets/img/product/2.jpg" alt="">
-                        <div class="pi-links">
-                            <a href="#" class="add-card"><i class="flaticon-bag"></i><span>Sepete Ekle</span></a>
-                            <a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>
-                        </div>
+                @*<a href="">*@
+                @Html.ActionLink(@item.Name, "Index", "Product", item.ProductId, new { @class = "" })
+                <div class="pi-pic">
+                    <div class="tag-new">Yeni</div>
+                    <img src="~/Assets/img/product/2.jpg" alt="">
+                    <div class="pi-links">
+                        <a href="#" class="add-card"><i class="flaticon-bag"></i><span>Sepete Ekle</span></a>
+                        <a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>
                     </div>
-                    <div class="pi-text">
-                        <h6>@item.UnitPrice TL</h6>
-                        <p></p>
-                    </div>
-                </a>
+                </div>
+                <div class="pi-text">
+                    <h6>@item.UnitPrice TL</h6>
+                    <p></p>
+                </div>
+                @*</a>*@
             </div>
                 
             }

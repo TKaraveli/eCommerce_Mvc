@@ -26,5 +26,15 @@ namespace eCommerce_Mvc.Services
 
             return dtoProductList;
         }
+
+        public Product GetProduct(int id)
+        {
+            if (id < 0)
+                return null;
+
+            var result = _productRepository.GetProduct(id);
+
+            return result;
+        }
     }
 }

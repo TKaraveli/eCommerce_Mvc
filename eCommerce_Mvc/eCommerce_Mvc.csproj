@@ -260,6 +260,10 @@
     <Folder Include="Views\Category\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\eCommerce_Mvc.DAL\eCommerce_Mvc.DAL.csproj">
+      <Project>{D966C79D-4B7C-44A4-B2F9-8D4A9EB5013C}</Project>
+      <Name>eCommerce_Mvc.DAL</Name>
+    </ProjectReference>
     <ProjectReference Include="..\eCommerce_Mvc.Entities\eCommerce_Mvc.Entities.csproj">
       <Project>{754FEE04-5A63-4796-961D-62EF62D02BDB}</Project>
       <Name>eCommerce_Mvc.Entities</Name>
