@@ -5,12 +5,6 @@
     Layout = "~/Views/Shared/_Layout1.cshtml";
 }
 
-@{
-    Product product = new Product();
-
-    product = Model;
-}
-
 <!-- product section -->
 <section class="product-section">
     <div class="container">
@@ -22,24 +16,24 @@
         <div class="row">
             <div class="col-lg-6">
                 <div class="product-pic-zoom">
-                    <img class="product-big-img" src="~/Assets/img/productDetails/kucukPrens/@product.ImageUrl" alt="">
+                    <img class="product-big-img" src="@Model.ImageUrl" alt="">
                 </div>
                 <div class="product-thumbs" tabindex="1" style="overflow: hidden; outline: none;">
                     <div class="product-thumbs-track">
-                        <div class="pt active" data-imgbigurl="img/@product.ImageUrl"><img src="~/Assets/img/productDetails/kucukPrens/@product.ImageUrl" alt=""></div>
-                        <div class="pt" data-imgbigurl="~/Assets/img/productDetails/kucukPrens/@product.Picture1"><img src="~/Assets/img/productDetails/kucukPrens/@product.Picture1" alt=""></div>
-                        <div class="pt" data-imgbigurl="~/Assets/img/productDetails/kucukPrens/@product.Picture2"><img src="~/Assets/img/productDetails/kucukPrens/@product.Picture2" alt=""></div>
-                        <div class="pt" data-imgbigurl="~/Assets/img/productDetails/kucukPrens/@product.Picture3"><img src="~/Assets/img/productDetails/kucukPrens/@product.Picture3" alt=""></div>
-                        <div class="pt" data-imgbigurl="~/Assets/img/productDetails/kucukPrens/@product.Picture4"><img src="~/Assets/img/productDetails/kucukPrens/@product.Picture4" alt=""></div>
-                        <div class="pt" data-imgbigurl="~/Assets/img/productDetails/kucukPrens/@product.Picture5"><img src="~/Assets/img/productDetails/kucukPrens/@product.Picture5" alt=""></div>
-                        <div class="pt" data-imgbigurl="~/Assets/img/productDetails/kucukPrens/@product.Picture6"><img src="~/Assets/img/productDetails/kucukPrens/@product.Picture6" alt=""></div>
-                        <div class="pt" data-imgbigurl="~/Assets/img/productDetails/kucukPrens/@product.Picture7"><img src="~/Assets/img/productDetails/kucukPrens/@product.Picture7" alt=""></div>
+                        <div class="pt active" data-imgbigurl="@Model.ImageUrl"><img src="@Model.ImageUrl" alt=""></div>
+                        <div class="pt" data-imgbigurl="~/Assets/img/productDetails/kucukPrens/@Model.Picture1"><img src="~/Assets/img/productDetails/kucukPrens/@Model.Picture1" alt=""></div>
+                        <div class="pt" data-imgbigurl="~/Assets/img/productDetails/kucukPrens/@Model.Picture2"><img src="~/Assets/img/productDetails/kucukPrens/@Model.Picture2" alt=""></div>
+                        <div class="pt" data-imgbigurl="~/Assets/img/productDetails/kucukPrens/@Model.Picture3"><img src="~/Assets/img/productDetails/kucukPrens/@Model.Picture3" alt=""></div>
+                        <div class="pt" data-imgbigurl="~/Assets/img/productDetails/kucukPrens/@Model.Picture4"><img src="~/Assets/img/productDetails/kucukPrens/@Model.Picture4" alt=""></div>
+                        <div class="pt" data-imgbigurl="~/Assets/img/productDetails/kucukPrens/@Model.Picture5"><img src="~/Assets/img/productDetails/kucukPrens/@Model.Picture5" alt=""></div>
+                        <div class="pt" data-imgbigurl="~/Assets/img/productDetails/kucukPrens/@Model.Picture6"><img src="~/Assets/img/productDetails/kucukPrens/@Model.Picture6" alt=""></div>
+                        <div class="pt" data-imgbigurl="~/Assets/img/productDetails/kucukPrens/@Model.Picture7"><img src="~/Assets/img/productDetails/kucukPrens/@Model.Picture7" alt=""></div>
                     </div>
                 </div>
             </div>
             <div class="col-lg-6 product-details">
-                <h2 class="p-title">@product.Name</h2>
-                <h3 class="p-price">@product.UnitPrice TL</h3>
+                <h2 class="p-title">@Model.Name</h2>
+                <h3 class="p-price">@Model.UnitPrice TL</h3>
                 <h4 class="p-stock">Stok Durumu: <span>Stokta</span></h4>
                 <div class="p-rating">
                     <i class="fa fa-star-o"></i>
@@ -52,9 +46,9 @@
                     <a href="">3 Yorum</a>|<a href="">Yorum Ekle</a>
                 </div>
                 <div>
-                    <p style="font-size:20px;">Yazar: @product.Writer.Name @product.Writer.Surname</p>
+                    <p style="font-size:20px;">Yazar: @Model.Writer.Name @Model.Writer.Surname</p>
                     <p style="font-size:20px;">Çevirmen: Tomris Uyar, Cemal Süreya</p>
-                    <p style="font-size:20px;">Yayınevi : @product.Supplier.CompanyName</p>
+                    <p style="font-size:20px;">Yayınevi : @Model.Supplier.CompanyName</p>
                 </div>
                 @*<div class="quantity">
                         <p>Adet</p>
@@ -79,9 +73,9 @@
                             </div>
                             <div id="collapse1" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
                                 <div class="panel-body">
-                                    <p>@product.LongDesciription</p>
-                                    <p>Sayfa Sayısı : @product.Pages</p>
-                                    <p>İlk Baskı Yılı : @product.PublishYear</p>
+                                    <p>@Model.LongDesciription</p>
+                                    <p>Sayfa Sayısı : @Model.Pages</p>
+                                    <p>İlk Baskı Yılı : @Model.PublishYear</p>
                                     <p>Dil : Türkçe</p>
                                 </div>
                             </div>
@@ -128,7 +122,7 @@
 
         <!-- comment -->
         @{
-            foreach (var review in product.Reviews)
+            foreach (var review in Model.Reviews)
             {
                 <div class="media">
                     <div class="media-left">
@@ -158,8 +152,8 @@
                 <input class="input" placeholder="Name" type="text" name="Name">
                 <br />
                 <input class="input" placeholder="Email" type="email" name="Email">
-                <br />
-                <input class="input" placeholder="Website" type="url" name="Website">
+                @*<br />
+                <input class="input" placeholder="Website" type="url" name="Website">*@
                 <br />
                 <textarea class="input" placeholder="Message" name="Message"></textarea>
                 <br />

@@ -25,5 +25,38 @@ namespace eCommerce_Mvc.Controllers
 
             return View(product);
         }
+
+        [HttpPost]
+        public ActionResult Index(string Name, string Email, string Website, string Message)
+        {
+
+            Product product = _productServices.GetProduct(id);
+
+            var userName = Name;
+            var userMail = Email;
+            var userSite = Website;
+            var userMessage = Message;
+            var commentTime = DateTime.Now;
+
+            ReviewControllerBLL reviewControllerBll = new ReviewControllerBLL();
+
+            ProductServices _productServices = new ProductServices();
+
+            Reviews review = new Reviews
+            {
+                ProductID = 8,
+                Name = userName,
+                Email = userMail,
+                Review = Message,
+                ReviewDate = commentTime
+            };
+
+
+            reviewControllerBll.Ekle(review);
+
+            Product product = _productServices.GetProduct
+
+            return View(product);
+        }
     }
 }
