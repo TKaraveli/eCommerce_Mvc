@@ -45,5 +45,7 @@ namespace eCommerce_Mvc.Entities.Entity
 
         public virtual ICollection<Product> Products { get; set; }
 
+       
+
     }
 }

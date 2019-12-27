@@ -1,4 +1,6 @@
-﻿using System;
+﻿using eCommerce_Mvc.Entities.DTO;
+using eCommerce_Mvc.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,10 +10,18 @@ namespace eCommerce_Mvc.Controllers
 {
     public class HomeController : Controller
     {
-        // GET: Home
+        private readonly ProductServices _productServices;
+
+        public HomeController()
+        {
+            _productServices = new ProductServices();
+        }
+
         public ActionResult Index()
         {
-            return View();
+            List<ProductDTO> productList = _productServices.GetProductDTOs();
+
+            return View(productList);
         }
     }
 }

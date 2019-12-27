@@ -49,6 +49,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Database\ProjectContext.cs" />
+    <Compile Include="Migrations\201912271253207_1.cs" />
+    <Compile Include="Migrations\201912271253207_1.Designer.cs">
+      <DependentUpon>201912271253207_1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\CategoryRepository.cs" />
     <Compile Include="Repository\ProductRepository.cs" />
@@ -63,6 +68,10 @@
       <Name>eCommerce_Mvc.Entities</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201912271253207_1.resx">
+      <DependentUpon>201912271253207_1.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -264,6 +264,10 @@
       <Project>{754FEE04-5A63-4796-961D-62EF62D02BDB}</Project>
       <Name>eCommerce_Mvc.Entities</Name>
     </ProjectReference>
+    <ProjectReference Include="..\eCommerce_Mvc.Services\eCommerce_Mvc.Services.csproj">
+      <Project>{F9DD7C23-E02D-4800-9949-1058E0D4FCAE}</Project>
+      <Name>eCommerce_Mvc.Services</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
