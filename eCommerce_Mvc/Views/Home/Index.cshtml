@@ -1,4 +1,5 @@
-﻿
+﻿@model List<ProductDTO>
+
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -57,22 +58,29 @@
             <h2>Benimkiler</h2>
         </div>
         <div class="product-slider owl-carousel">
-            <a href="~/Product/KucukPrens">
+            @foreach (var item in Model)
+            {
+                
             <div class="product-item">
-                <div class="pi-pic">
-                    <div class="tag-new">Yeni</div>
-                    <img src="~/Assets/img/product/1.jpg" alt="">
-                    <div class="pi-links">
-                        <a href="#" class="add-card"><i class="flaticon-bag"></i><span>Sepete Ekle</span></a>
-                        <a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>
+                <a href="~/Views/Product/Index.cshtml">
+                    <div class="pi-pic">
+                        <div class="tag-new">Yeni</div>
+                        <img src="~/Assets/img/product/2.jpg" alt="">
+                        <div class="pi-links">
+                            <a href="#" class="add-card"><i class="flaticon-bag"></i><span>Sepete Ekle</span></a>
+                            <a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>
+                        </div>
                     </div>
-                </div>
-                <div class="pi-text">
-                    <h6>7,90 TL</h6>
-                    <p>Hep Beraber</p>
-                </div>
-            </div> 
-            </a>
+                    <div class="pi-text">
+                        <h6>@item.UnitPrice TL</h6>
+                        <p></p>
+                    </div>
+                </a>
+            </div>
+                
+            }
+
+
         </div>
     </div>
 </section>
