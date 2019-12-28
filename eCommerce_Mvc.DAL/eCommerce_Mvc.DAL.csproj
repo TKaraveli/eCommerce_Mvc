@@ -58,6 +58,8 @@
     <Compile Include="Repository\CategoryRepository.cs" />
     <Compile Include="Repository\ProductRepository.cs" />
     <Compile Include="Repository\ReviewRepository.cs" />
+    <Compile Include="Repository\SupplierRepository.cs" />
+    <Compile Include="Repository\WriterRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

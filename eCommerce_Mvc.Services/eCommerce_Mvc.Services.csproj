@@ -47,6 +47,8 @@
     <Compile Include="ProductServices.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ReviewServices.cs" />
+    <Compile Include="SupplierServices.cs" />
+    <Compile Include="WriterServices.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\eCommerce_Mvc.DAL\eCommerce_Mvc.DAL.csproj">

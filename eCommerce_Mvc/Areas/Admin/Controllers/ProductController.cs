@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using eCommerce_Mvc.Areas.Admin.Models;
 using eCommerce_Mvc.Entities.DTO;
+using eCommerce_Mvc.Entities.Entity;
 using eCommerce_Mvc.Services;
 
 namespace eCommerce_Mvc.Areas.Admin.Controllers
@@ -29,9 +31,26 @@ namespace eCommerce_Mvc.Areas.Admin.Controllers
 
         public ActionResult Index()
         {
-            var products = _productServices.GetProducts();
+            CategoryServices _categoryServices = new CategoryServices();
+            List<Category> categories = _categoryServices.GetCategories();
 
-            return View(products);
+            WriterServices _writerServices = new WriterServices();
+            List<Writer> writers = _writerServices.GetWriters();
+
+            ProductServices _productServices = new ProductServices();
+            List<Product> products = _productServices.GetProducts();
+
+            SupplierServices _supplierServices = new SupplierServices();
+            List<Supplier> suppliers = _supplierServices.GetSuppliers();
+
+            var model = new AdminIndexViewModel()
+            {
+                Kategoriler = kategoriler,
+                Yazarlar = yazarlar,
+                Haberler = haberler
+            };
+
+            return View(model);
         }
 
         [HttpGet]
