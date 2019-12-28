@@ -21,6 +21,8 @@ namespace eCommerce_Mvc.DAL.Database
             var value = System.Data.Entity.SqlServer.SqlProviderServices.Instance;
         }
 
+        public static ProjectContext staticContext = new ProjectContext();
+
         public DbSet<Advertisement> Advertisements { get; set; }
 
         public DbSet<Cart> Carts { get; set; }

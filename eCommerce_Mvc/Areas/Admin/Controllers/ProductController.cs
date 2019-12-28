@@ -15,6 +15,8 @@ namespace eCommerce_Mvc.Areas.Admin.Controllers
     {
         private readonly ProductServices _productServices;
 
+        ProjectContext _db = new ProjectContext();
+
         public ProductController()
         {
             _productServices = new ProductServices();
@@ -60,8 +62,6 @@ namespace eCommerce_Mvc.Areas.Admin.Controllers
         {
             ProductServices _productServices = new ProductServices();
 
-            ProjectContext _db = new ProjectContext();
-
             Category newCategory = new Category();
 
             newCategory = _db.Categories.FirstOrDefault(x => x.CategoryName == categoryName);
@@ -94,6 +94,28 @@ namespace eCommerce_Mvc.Areas.Admin.Controllers
             };
 
             _productServices.AddProduct(product);
+
+            return RedirectToAction("Index", "Home");
+        }
+
+        [HttpPost]
+        public ActionResult Delete(string product)
+        {
+            string selectedProduct = product;
+            var names = selectedProduct.Split(' ');
+            string productIdString = names[0];
+
+            int productId = Convert.ToInt32(productIdString);
+
+            ProductServices _productServices = new ProductServices();
+
+            Product deletedProduct = new Product();
+
+            deletedProduct = ProjectContext.staticContext.Products.FirstOrDefault(x => x.ProductId == productId);
+
+            deletedProduct = ProjectContext.staticContext.Products.FirstOrDefault(x => x.ProductId == productId);
+
+            _productServices.DeleteProduct(deletedProduct);
 
             return RedirectToAction("Index", "Home");
         }

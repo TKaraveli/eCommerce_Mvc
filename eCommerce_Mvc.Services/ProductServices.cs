@@ -50,5 +50,13 @@ namespace eCommerce_Mvc.Services
 
             _productRepository.AddProduct(product);
         }
+
+        public void DeleteProduct(Product product)
+        {
+            if (product == null)
+                return;
+
+            _productRepository.DeleteProduct(product);
+        }
     }
 }

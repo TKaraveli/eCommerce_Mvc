@@ -11,6 +11,8 @@ namespace eCommerce_Mvc.DAL.Repository
 {
     public class ProductRepository
     {
+        ProjectContext databaseContext = new ProjectContext();
+
         public List<Product> GetAllProducts()
         {
             List<Product> products;
@@ -23,8 +25,6 @@ namespace eCommerce_Mvc.DAL.Repository
             //    products = databaseContext.Products.Include("Supplier").ToList();
             //    products = databaseContext.Products.Include("Writer").ToList();
             //}
-
-            ProjectContext databaseContext = new ProjectContext();
 
             //news = databaseContext.News.ToList();
             //news = databaseContext.News.Include(i => i.Category).ToList();
@@ -39,7 +39,7 @@ namespace eCommerce_Mvc.DAL.Repository
 
         public Product GetProduct(int id)
         {
-            Product product;
+            Product product = new Product();
             var databaseContext = new ProjectContext();
             
                 //product = databaseContext.Products.Find(id);
@@ -49,12 +49,17 @@ namespace eCommerce_Mvc.DAL.Repository
         }
 
         public bool AddProduct(Product product)
-        {
-            using (var databaseContext = new ProjectContext())
-            {
+        {            
                 databaseContext.Entry(product).State = EntityState.Added;
                 return databaseContext.SaveChanges() > 0;
-            }
+            
+        }
+
+        public bool DeleteProduct(Product product)
+        {
+                ProjectContext.staticContext.Entry(product).State = EntityState.Deleted;
+                return ProjectContext.staticContext.SaveChanges() > 0;
+            
         }
     }
 }
