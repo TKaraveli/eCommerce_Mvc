@@ -148,6 +148,7 @@
 
         @using (Html.BeginForm())
         {
+            @Html.HiddenFor(i => i.ProductId)
             <div class="container">
                 <input class="input" placeholder="Name" type="text" name="Name">
                 <br />

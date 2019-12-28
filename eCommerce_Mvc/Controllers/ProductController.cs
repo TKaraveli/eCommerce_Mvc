@@ -27,10 +27,8 @@ namespace eCommerce_Mvc.Controllers
         }
 
         [HttpPost]
-        public ActionResult Index(string Name, string Email, string Website, string Message)
+        public ActionResult Index(int id,string Name, string Email, string Website, string Message)
         {
-
-            Product product = _productServices.GetProduct(id);
 
             var userName = Name;
             var userMail = Email;
@@ -38,13 +36,13 @@ namespace eCommerce_Mvc.Controllers
             var userMessage = Message;
             var commentTime = DateTime.Now;
 
-            ReviewControllerBLL reviewControllerBll = new ReviewControllerBLL();
+            ReviewServices _reviewServices = new ReviewServices();
 
             ProductServices _productServices = new ProductServices();
 
             Reviews review = new Reviews
             {
-                ProductID = 8,
+                ProductID = id,
                 Name = userName,
                 Email = userMail,
                 Review = Message,
@@ -52,9 +50,9 @@ namespace eCommerce_Mvc.Controllers
             };
 
 
-            reviewControllerBll.Ekle(review);
+            _reviewServices.AddReviews(review);
 
-            Product product = _productServices.GetProduct
+            Product product = _productServices.GetProduct(id);
 
             return View(product);
         }
