@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using eCommerce_Mvc.Areas.Admin.Models;
+using eCommerce_Mvc.DAL.Database;
 using eCommerce_Mvc.Entities.DTO;
 using eCommerce_Mvc.Entities.Entity;
 using eCommerce_Mvc.Services;
@@ -45,43 +46,76 @@ namespace eCommerce_Mvc.Areas.Admin.Controllers
 
             var model = new AdminIndexViewModel()
             {
-                Kategoriler = kategoriler,
-                Yazarlar = yazarlar,
-                Haberler = haberler
+                Categories = categories,
+                Writers = writers,
+                Products = products,
+                Suppliers = suppliers
             };
 
             return View(model);
         }
 
-        [HttpGet]
-        public ActionResult Edit(int id)
-        {
-            var category = _categoryServices.GetCategory(id);
-
-            if (category == null)
-                return HttpNotFound();
-
-            return View(category.GetCategoryDto());
-        }
-
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, CategoryDTO categoryDto)
+        public ActionResult Index(string productName, string supplierName,string categoryName, double unitPrice, string writerName, string description, string productCover, int pages, int publishYear, bool isActive)
         {
-            if (id != categoryDto.Id)
-                return new HttpNotFoundResult();
+            ProductServices _productServices = new ProductServices();
 
-            if (!ModelState.IsValid)
+            ProjectContext _db = new ProjectContext();
+
+            Category newCategory = new Category();
+
+            newCategory = _db.Categories.FirstOrDefault(x => x.CategoryName == categoryName);
+
+            Supplier newsSupplier = new Supplier();
+
+            newsSupplier = _db.Supplier.FirstOrDefault(x => x.CompanyName == supplierName);
+
+            Writer newWriter = new Writer();
+
+            string fullName = writerName;
+            var names = fullName.Split(' ');
+            string name = names[0];
+            string surName = names[1];
+
+            newWriter = _db.Writers.FirstOrDefault(x => (x.Name == name) && (x.Surname == surName));
+
+            Product product = new Product
             {
-                ModelState.AddModelError("", "Gerekli alanları doldurun!");
-                return View();
-            }
+                Name = productName,
+                LongDesciription = description,
+                ImageUrl = productCover,
+                SupplierId = newsSupplier.SupplierId,
+                CategoryId = newCategory.CategoryId,
+                WriterId = newWriter.Id,
+                UnitPrice = unitPrice,
+                Pages = pages,
+                PublishYear = publishYear
 
-            var category = categoryDto.GetCategory();
+            };
 
-            _categoryServices.EditCategory(category);
+            _productServices.AddProduct(product);
 
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction("Index", "Home");
         }
+
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public ActionResult Edit(int id, CategoryDTO categoryDto)
+        //{
+        //    if (id != categoryDto.Id)
+        //        return new HttpNotFoundResult();
+
+        //    if (!ModelState.IsValid)
+        //    {
+        //        ModelState.AddModelError("", "Gerekli alanları doldurun!");
+        //        return View();
+        //    }
+
+        //    var category = categoryDto.GetCategory();
+
+        //    _categoryServices.EditCategory(category);
+
+        //    return RedirectToAction(nameof(Index));
+        //}
     }
 }

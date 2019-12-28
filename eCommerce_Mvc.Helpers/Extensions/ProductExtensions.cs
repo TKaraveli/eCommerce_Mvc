@@ -32,7 +32,7 @@ namespace eCommerce_Mvc.Helpers.Extensions
                 ProductId = i.ProductId,
                 Name = i.Name,
                 ImageUrl = i.ImageUrl,
-                Information = i.LongDesciription.Substring(0, 20),
+                //Information = i.LongDesciription.Substring(0, 20),
                 UnitPrice = i.UnitPrice,
                 CategoryName = i.Category.CategoryName
             }).ToList();

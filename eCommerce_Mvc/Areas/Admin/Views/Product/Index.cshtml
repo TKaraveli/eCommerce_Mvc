@@ -1,0 +1,120 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+
+    <script src="~/ckeditor/ckeditor.js"></script>
+
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+
+</head>
+<body>
+    <div class="container">
+        @using (Html.BeginForm())
+        {
+            <span>Ürün Adı: </span><input class="input" placeholder="Ürün adı" type="text" name="productName">
+            <br />
+            <span>İçerik: </span>
+            <input class="input" placeholder="icerik" type="text" name="description">
+            <script>
+                CKEDITOR.replace('description');
+            </script>
+            <br />
+            <span>Ürün Kapak Resim: </span><input id="File1" type="file" name="productCover" />
+            <br />
+
+            <br />
+            <span>Kategori: </span>
+            <select id="Select1" name="categoryName">
+                @{
+
+                    foreach (Category category in Model.Categories)
+                    {
+                        <option>@category.CategoryName</option>
+                    }
+
+
+                }
+            </select>
+
+            <br />
+            <span>Tedarikci: </span>
+            <select id="Select1" name="supplierName">
+                @{
+
+                    foreach (Supplier supplier in Model.Suppliers)
+                    {
+                        <option>@supplier.CompanyName</option>
+                    }
+                }
+            </select>
+
+            <br />
+            <span>Aktif mi ?</span>
+            <span>Evet</span><input id="aktifMi" type="radio" name="isActive" value="True" />
+            <span>Hayır</span><input id="aktifMi" type="radio" name="isActive" value="False" />
+            <br />
+            <span>Yazar: </span>
+            <select id="Select2" name="writerName">
+                @{
+
+                    foreach (Writer writer in Model.Writers)
+                    {
+                        <option>@writer.Name @writer.Surname</option>
+                    }
+
+
+                }
+            </select>
+            <br />
+            <span>Ürün Fiyatı: </span><input class="input" placeholder="Ürün Fiyatı" type="text" name="unitPrice">
+            <br />
+
+            <br />
+            <span>Sayfa Sayısı: </span><input class="input" placeholder="Sayfa Sayısı" type="text" name="pages">
+            <br />
+
+            <br />
+            <span>Yayınlanma Yılı: </span><input class="input" placeholder="Sayfa Sayısı" type="text" name="publishYear">
+            <br />
+
+            <br />
+
+            <input id="urunEkle" type="submit" class="input-btn" value="Ekle" />
+
+            <br />
+
+            <br />
+
+
+
+        }
+
+        @using (Html.BeginForm("Sil", "Admin"))
+        {
+            <span>Ürün Sil</span>
+            <br />
+            <select id="Select3" name="product">
+                @{
+
+                    foreach (Product product in Model.Products)
+                    {
+                        <option>@product.ProductId - @product.Name</option>
+                    }
+
+
+                }
+            </select>
+
+            <input id="urunSil" type="submit" class="input-btn" value="Sil" />
+        }
+
+    </div>
+</body>
+</html>

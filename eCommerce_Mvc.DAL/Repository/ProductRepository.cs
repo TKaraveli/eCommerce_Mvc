@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -45,6 +46,15 @@ namespace eCommerce_Mvc.DAL.Repository
                 product = databaseContext.Products.FirstOrDefault(i => i.ProductId.Equals(id));                
             
             return product;
+        }
+
+        public bool AddProduct(Product product)
+        {
+            using (var databaseContext = new ProjectContext())
+            {
+                databaseContext.Entry(product).State = EntityState.Added;
+                return databaseContext.SaveChanges() > 0;
+            }
         }
     }
 }

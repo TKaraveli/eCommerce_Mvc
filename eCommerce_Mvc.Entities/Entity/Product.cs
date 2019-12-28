@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Web.Mvc;
 
 namespace eCommerce_Mvc.Entities.Entity
 {
@@ -59,6 +60,7 @@ namespace eCommerce_Mvc.Entities.Entity
         public string ShortDesciription { get; set; }
 
         [MaxLength(2000)]
+        [AllowHtml]
         public string LongDesciription { get; set; }
 
         [MaxLength(500)]

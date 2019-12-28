@@ -42,5 +42,13 @@ namespace eCommerce_Mvc.Services
 
             return result;
         }
+
+        public void AddProduct(Product product)
+        {
+            if (product == null)
+                return;
+
+            _productRepository.AddProduct(product);
+        }
     }
 }
