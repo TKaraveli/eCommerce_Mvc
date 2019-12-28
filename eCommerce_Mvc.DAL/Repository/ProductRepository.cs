@@ -24,13 +24,14 @@ namespace eCommerce_Mvc.DAL.Repository
             //}
 
             ProjectContext databaseContext = new ProjectContext();
-            
-                //news = databaseContext.News.ToList();
-                //news = databaseContext.News.Include(i => i.Category).ToList();
-                products = databaseContext.Products.Include("Category").ToList();
-                products = databaseContext.Products.Include("Reviews").ToList();
-                products = databaseContext.Products.Include("Supplier").ToList();
-                products = databaseContext.Products.Include("Writer").ToList();            
+
+            //news = databaseContext.News.ToList();
+            //news = databaseContext.News.Include(i => i.Category).ToList();
+            //products = databaseContext.Products.Include("Category").ToList();
+            //products = databaseContext.Products.Include("Reviews").ToList();
+            //products = databaseContext.Products.Include("Supplier").ToList();
+            //products = databaseContext.Products.Include("Writer").ToList();            
+            products = databaseContext.Products.ToList();
 
             return products;
         }

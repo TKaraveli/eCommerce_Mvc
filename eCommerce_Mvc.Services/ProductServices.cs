@@ -19,6 +19,12 @@ namespace eCommerce_Mvc.Services
             _productRepository = new ProductRepository();
         }
 
+        public List<Product> GetProducts()
+        {
+            var products = _productRepository.GetAllProducts();
+            return products;
+        }
+
         public List<ProductDTO> GetProductDTOs()
         {
             List<Product> productList = _productRepository.GetAllProducts();
