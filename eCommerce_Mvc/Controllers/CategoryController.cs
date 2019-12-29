@@ -13,5 +13,26 @@ namespace eCommerce_Mvc.Controllers
         {
             return View();
         }
+
+        public ActionResult Products()
+        {
+            return View();
+        }
+
+        public ActionResult History()
+        {
+            return View();
+        }
+
+        public ActionResult Literature()
+        {
+            return View();
+        }
+
+        public ActionResult Science()
+        {
+            return View();
+
+        }
     }
 }

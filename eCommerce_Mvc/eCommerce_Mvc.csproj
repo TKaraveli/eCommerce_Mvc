@@ -698,6 +698,10 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Home\SignIn.cshtml" />
     <Content Include="Views\Cart\Index.cshtml" />
+    <Content Include="Views\Category\Products.cshtml" />
+    <Content Include="Views\Category\History.cshtml" />
+    <Content Include="Views\Category\Literature.cshtml" />
+    <Content Include="Views\Category\Science.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -708,7 +712,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Views\Shared\" />
-    <Folder Include="Views\Category\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\eCommerce_Mvc.DAL\eCommerce_Mvc.DAL.csproj">
