@@ -8,15 +8,15 @@ namespace eCommerce_Mvc.Services
 {
     public class LoginService
     {
-        private static readonly string _username = "tayfun";
+        private static readonly string _email = "tayfunkaraveli@hotmail.com";
         private static readonly string _password = "1234";
 
-        public bool IsExistLogin(string username, string password)
+        public bool IsExistLogin(string email, string password)
         {
-            if (string.IsNullOrWhiteSpace(username) | string.IsNullOrWhiteSpace(password))
+            if (string.IsNullOrWhiteSpace(email) | string.IsNullOrWhiteSpace(password))
                 return false;
 
-            if (_username != username)
+            if (_email != email)
                 return false;
 
             if (_password != password)
