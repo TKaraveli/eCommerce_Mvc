@@ -1,0 +1,79 @@
+﻿@model eCommerce_Mvc.Entities.Entity.Cart
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout1.cshtml";
+}
+
+<!-- cart section end -->
+<section class="cart-section spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="cart-table">
+                    <h3>Sepetiniz</h3>
+                    <div class="cart-table-warp">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th class="product-th"></th>
+                                    <th class="quy-th">Adet</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @if (Model.CartLines.Count <= 0)
+                                {
+                                    <div class="alert alert-warning" role="alert">
+                                        Ürün yok
+                                    </div>
+                                }
+                                @foreach (var item in Model.CartLines)
+                                {
+                                    <tr>
+                                        <td class="product-col">
+                                            <img src="/Assets/img/product/@item.Product.ImageUrl" alt="">
+                                            <div class="pc-title">
+                                                <h4>@item.Product.Name</h4>
+                                                <p>@item.Product.UnitPrice TL</p>
+                                            </div>
+                                        </td>
+                                        <td class="quy-col">
+                                            <div class="quantity">
+                                                <h5>@item.Quantity</h5>
+                                            </div>
+                                        </td>
+                                        <td class="total-col">
+
+                                            @using (Html.BeginForm("RemoveFromCart", "Cart"))
+                                            {
+                                                @Html.Hidden("Id", item.Product.ProductId)
+                                                <button type="submit" class="btn btn-danger">
+                                                    <i class="fa fa-trash-o" aria-hidden="true"></i>
+                                                    Sil
+                                                </button>
+                                            }
+
+                                        </td>
+                                    </tr>
+                                }
+
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="total-cost">
+                        <h6>Sepet Tutarı <span>@Model.Total() TL</span></h6>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 card-right">
+                <div class="promo-code-form">
+                    <input type="text" placeholder="Kupon Kodu">
+                    <button>Uygula</button>
+                </div>
+                @Html.ActionLink("Ödemeye Geç", "Checkout", new object { }, new { @class = "site-btn" })
+                @Html.ActionLink("Alışverişe Devam Et", "Products", "Category", new { @class = "site-btn sb-dark" })
+            </div>
+        </div>
+    </div>
+</section>
+<!-- cart section end -->

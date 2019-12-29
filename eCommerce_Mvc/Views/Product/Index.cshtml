@@ -66,9 +66,8 @@
                 else
                 {
                     <h4 class="p-stock">Stok Durumu: <span>Stokta</span></h4>
-                    using (Html.BeginForm("AddToCart", "Cart"))
+                    using (Html.BeginForm("AddToCart", "Cart", new { id = Model.ProductId}))
                     {
-                        @Html.HiddenFor(Model => Model.ProductId)
                         <button type="submit" class="btn btn-success" id="addToCart">
                             <i class="fa fa-cart-plus" aria-hidden="true"></i>
                             Sepete Ekle
