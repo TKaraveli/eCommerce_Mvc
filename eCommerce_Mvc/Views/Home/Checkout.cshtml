@@ -1,0 +1,106 @@
+﻿
+@{
+    ViewBag.Title = "Checkout";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- checkout section  -->
+<section class="checkout-section spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 order-2 order-lg-1">
+                <div class="checkout-form">
+                    <div class="cf-title">Teslim Adresi</div>
+                    <div>
+                        <div class="cf-radio-btns address-rb">
+                            <div class="cfr-item">
+                                <input type="radio" name="pm" id="one">
+                                <label for="one">Kayıtlı Adresimi Kullan</label>
+                            </div>
+                            <br />
+                            <div class="cfr-item" style="margin-right:3.4%">
+                                <input type="radio" name="pm" id="two">
+                                <label for="two">Farklı Bir Adres Gir</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row address-inputs">
+                        <div class="col-md-12">
+                            <input type="text" placeholder="Adres">
+                        </div>
+                        <div class="col-md-6">
+                            <input type="text" placeholder="Posta Kodu">
+                        </div>
+                        <div class="col-md-6">
+                            <input type="text" placeholder="İletişim Numarası">
+                        </div>
+                    </div>
+                    <div class="cf-title">Kargo</div>
+                    <div class="row shipping-btns">
+                        <div class="col-6">
+                            <h4>Standard</h4>
+                        </div>
+                        <div class="col-6">
+                            <div class="cf-radio-btns">
+                                <div class="cfr-item">
+                                    <input type="radio" name="shipping" id="ship-1">
+                                    <label for="ship-1">2 TL</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <h4>Hızlı Teslimat  </h4>
+                        </div>
+                        <div class="col-6">
+                            <div class="cf-radio-btns">
+                                <div class="cfr-item">
+                                    <input type="radio" name="shipping" id="ship-2">
+                                    <label for="ship-2">3.45 TL</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cf-title">Ödeme Seçenekleri</div>
+                    <ul class="payment-list">
+                        <li>
+                            <label for="payment-1">Paypal</label><img src="/Assets/img/paypal.png" alt="" style="padding-left:3%">
+                            <input type="radio" name="payment" id="payment-1">
+                        </li>
+                        <li>
+                            <label for="payment-2">Kredi / Banka Kartı</label><img src="/Assets/img/mastercart.png" alt="" style="padding-left:3%">
+                            <input type="radio" name="payment" id="payment-2">
+                        </li>
+                        <li>
+                            <label for="payment-3">Kapıda Ödeme</label>
+                            <input type="radio" name="payment" id="payment-3">
+                        </li>
+                    </ul>
+                    <button class="site-btn submit-order-btn">Sipariş Ver</button>
+                </div>
+            </div>
+            <div class="col-lg-4 order-1 order-lg-2">
+                <div class="checkout-cart">
+                    <h3>Sepetiniz</h3>
+                    <ul class="product-list">
+                        <li>
+                            <div class="pl-thumb"><img src="/Assets/img/cart/2.jpg" alt=""></div>
+                            <h6>Büyük Sorulara Kısa Yanıtlar</h6>
+                            <p>13,40 TL</p>
+                        </li>
+                        <li>
+                            <div class="pl-thumb"><img src="/Assets/img/cart/1.jpg" alt=""></div>
+                            <h6>Çernobil</h6>
+                            <p>17,50 TL</p>
+                        </li>
+                    </ul>
+                    <ul class="price-list">
+                        <li>Ürün Toplamı<span>30,90</span></li>
+                        <li>Kargo Ücreti<span>2 TL</span></li>
+                        <li class="total">Ödenecek Ücret<span>32,90</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- checkout section end -->

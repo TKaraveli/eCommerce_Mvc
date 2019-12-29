@@ -54,5 +54,28 @@ namespace eCommerce_Mvc.Controllers
             }
 
         }
+
+        public ActionResult SignUp()
+        {
+            return View();
+
+        }
+
+        public ActionResult Checkout()
+        {
+            return View();
+        }
+
+        public ActionResult Contact()
+        {
+            return View();
+        }
+
+        public ActionResult FAQ()
+        {
+            return View();
+        }
+
+
     }
 }
