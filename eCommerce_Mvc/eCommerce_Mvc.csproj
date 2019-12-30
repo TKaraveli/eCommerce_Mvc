@@ -108,6 +108,7 @@
     <Content Include="Assets\img\arrow-up.png" />
     <Content Include="Assets\img\banner-bg.jpg" />
     <Content Include="Assets\img\banner.jpg" />
+    <Content Include="Assets\img\banner2.jfif" />
     <Content Include="Assets\img\bg-2.jpg" />
     <Content Include="Assets\img\bg.jpg" />
     <Content Include="Assets\img\blog-thumbs\1.jpg" />
@@ -125,6 +126,7 @@
     <Content Include="Assets\img\cokSatanlar\8.jpg" />
     <Content Include="Assets\img\favicon.ico" />
     <Content Include="Assets\img\fırsat.jpg" />
+    <Content Include="Assets\img\fırsat2.jfif" />
     <Content Include="Assets\img\history\1.jpg" />
     <Content Include="Assets\img\history\10.jpg" />
     <Content Include="Assets\img\history\11.jpg" />
