@@ -68,7 +68,7 @@
             <div class="col-lg-4 card-right">
                 <div class="promo-code-form">
                     <input type="text" placeholder="Kupon Kodu">
-                    <button>Uygula</button>
+                    <button>Uygula</button>                    
                 </div>
                 @Html.ActionLink("Ödemeye Geç", "Checkout", "Cart", new object { }, Model.CartLines.Count == 0 ? new { @class = "btn site-btn disabled" } : new { @class = "btn site-btn" })
                 

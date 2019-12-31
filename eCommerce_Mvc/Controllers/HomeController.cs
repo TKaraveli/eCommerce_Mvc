@@ -1,4 +1,5 @@
 ﻿using eCommerce_Mvc.Entities.DTO;
+using eCommerce_Mvc.Entities.Entity;
 using eCommerce_Mvc.Services;
 using System;
 using System.Collections.Generic;
@@ -14,10 +15,13 @@ namespace eCommerce_Mvc.Controllers
 
         private readonly LoginService _loginService;
 
+        Cart cart;
+
         public HomeController()
         {
             _productServices = new ProductServices();
             _loginService = new LoginService();
+            cart = new Cart();
         }
 
         public ActionResult Index()
@@ -71,6 +75,14 @@ namespace eCommerce_Mvc.Controllers
             return View();
         }
 
-
+        public ActionResult Menu()
+        {
+            if (cart == null)
+            {
+                cart = new Cart();
+                Session["Cart"] = cart;
+            }
+            return View(cart);
+        }
     }
 }
