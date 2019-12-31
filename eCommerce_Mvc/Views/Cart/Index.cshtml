@@ -70,7 +70,8 @@
                     <input type="text" placeholder="Kupon Kodu">
                     <button>Uygula</button>
                 </div>
-                @Html.ActionLink("Ödemeye Geç", "Checkout", "Cart", new object { }, new { @class = "site-btn" })
+                @Html.ActionLink("Ödemeye Geç", "Checkout", "Cart", new object { }, Model.CartLines.Count == 0 ? new { @class = "btn site-btn disabled" } : new { @class = "btn site-btn" })
+                
                 @Html.ActionLink("Alışverişe Devam Et", "Products", "Category", "Category", new { @class = "site-btn sb-dark" })
             </div>
         </div>
