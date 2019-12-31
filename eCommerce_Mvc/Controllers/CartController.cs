@@ -54,5 +54,10 @@ namespace eCommerce_Mvc.Controllers
 
             return cart;
         }
+
+        public ActionResult Checkout()
+        {
+            return View(GetCart());
+        }
     }
 }

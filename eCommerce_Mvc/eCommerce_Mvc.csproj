@@ -704,10 +704,10 @@
     <Content Include="Views\Category\History.cshtml" />
     <Content Include="Views\Category\Literature.cshtml" />
     <Content Include="Views\Category\Science.cshtml" />
-    <Content Include="Views\Home\Checkout.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\FAQ.cshtml" />
     <Content Include="Views\Home\SignUp.cshtml" />
+    <Content Include="Views\Cart\Checkout.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

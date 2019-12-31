@@ -59,12 +59,7 @@ namespace eCommerce_Mvc.Controllers
         {
             return View();
 
-        }
-
-        public ActionResult Checkout()
-        {
-            return View();
-        }
+        }        
 
         public ActionResult Contact()
         {
