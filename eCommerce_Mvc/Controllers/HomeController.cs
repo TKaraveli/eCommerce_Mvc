@@ -15,13 +15,13 @@ namespace eCommerce_Mvc.Controllers
 
         private readonly LoginService _loginService;
 
-        Cart cart;
+        Cart _cart;
 
         public HomeController()
         {
             _productServices = new ProductServices();
             _loginService = new LoginService();
-            cart = new Cart();
+            _cart = new Cart();
         }
 
         public ActionResult Index()
@@ -74,15 +74,6 @@ namespace eCommerce_Mvc.Controllers
         {
             return View();
         }
-
-        public ActionResult Menu()
-        {
-            if (cart == null)
-            {
-                cart = new Cart();
-                Session["Cart"] = cart;
-            }
-            return View(cart);
-        }
+        
     }
 }

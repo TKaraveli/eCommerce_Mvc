@@ -15,8 +15,8 @@ namespace eCommerce_Mvc.DAL.Database
             //: base("") //connectionPath
         {
             //Configuration.LazyLoadingEnabled = false;
-            //Database.Connection.ConnectionString = @"Server = TAYFUN\SQLEXPRESS;Database = eCommerce_Mvc;Trusted_Connection=True;MultipleActiveResultSets=True;";
-            Database.Connection.ConnectionString = @"Server = BK-L206-01IS;Database = eCommerce_Mvc;user id=sa;password=123;MultipleActiveResultSets=True;";
+            Database.Connection.ConnectionString = @"Server = TAYFUN\SQLEXPRESS;Database = eCommerce_Mvc;Trusted_Connection=True;MultipleActiveResultSets=True;";
+            //Database.Connection.ConnectionString = @"Server = BK-L206-01IS;Database = eCommerce_Mvc;user id=sa;password=123;MultipleActiveResultSets=True;";
 
             var value = System.Data.Entity.SqlServer.SqlProviderServices.Instance;
         }
